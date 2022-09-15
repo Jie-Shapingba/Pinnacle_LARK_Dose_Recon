@@ -18,7 +18,7 @@ This project is written with Pinnacle Script and Python 2.7.9. It converts VMAT 
 * Make sure this folder and sub-folder have write permission for users.
 * Copy Tracking files with right names and format to Pinnacle "/home/p3rtp/RadCalc/LARK/".
 * Run the initial script "start.Script" under the path "/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/".
-* The procedure can be hours depends on the clinical plan and Pinnacle workload. 
+* The procedure can be hours depending on the clinical plan and Pinnacle workload. 
 * The procedure is finihsed when the script window closed.
-* Each fraction must run in a new copied clinical plan. After reconstruction done, the dose and ROIs can be exported to Velocty.
+* Each fraction must run in a new copied clinical plan. After reconstruction done, the dose and ROIs can be exported to Velocity.
 * Dose summary for the course can be done in Velocity.
