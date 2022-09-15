@@ -14,7 +14,7 @@ This project is written with Pinnacle Script and Python 2.7.9. It converts VMAT 
 * This project is heavy workloaded. Please run it when Pinnacle is free. Running after hour is recommanded.
 
 ## Instruction of use
-* Copy all source files to Pinnacle "/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/".
+* Extract source zip file to Pinnacle "/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/".
 * Make sure this folder and sub-folder have write permission for users.
 * Copy Tracking files with right names and format to Pinnacle "/home/p3rtp/RadCalc/LARK/".
 * Run the initial script "start.Script" under the path "/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/".
