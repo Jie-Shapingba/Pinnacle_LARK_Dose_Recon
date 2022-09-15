@@ -1,0 +1,35 @@
+// Add prescription with Fraction & beam name
+TrialList.#"with_LARK".AddPrescription = "Add";
+TrialList.#"with_LARK".PrescriptionList.Last.MakeCurrent="";
+Store.StringAt.prsc=TrialList.#"VMAT".BeamList.Current.Name;
+TrialList.#"with_LARK".PrescriptionList.Current.Name=Store.StringAt.prsc;
+TrialList.#"with_LARK".PrescriptionList.Current.MethodInt = "1";
+TrialList.#"with_LARK".PrescriptionList.Current.RequestedMonitorUnitsPerFraction=TrialList.#"VMAT".BeamList.Current.MonitorUnits;
+TrialList.#"with_LARK".PrescriptionList.Current.NumberOfFractions=1;
+
+//read Trace file for this beam
+PoiList.Current=TrialList.#"VMAT".BeamList.Current.IsocenterName;
+Store.FloatAt.x=PoiList.Current.XCoord;
+Store.FloatAt.y=PoiList.Current.YCoord;
+Store.FloatAt.z=PoiList.Current.ZCoord;
+
+Store.StringAt.py="python /usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/read_shift.py ";
+Store.At.py.AppendString=Store.StringAt.prsc;
+SpawnCommand = Store.StringAt.py;
+Script.ExecuteNow = "/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/create_poi.Script";
+
+Store.FreeAt.py="";
+Store.FreeAt.frct="";
+Store.FreeAt.x="";
+Store.FreeAt.y="";
+Store.FreeAt.z="";
+Store.FreeAt.poi_nm="";
+Store.FreeAt.poix="";
+Store.FreeAt.poiy="";
+Store.FreeAt.poiz="";
+
+
+// Loop CP
+TrialList.#"VMAT".BeamList.Current.CPManager.CPManagerObject.ControlPointList.ChildrenEachCurrent.#"@".Script.ExecuteNow="/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/cp.Script";
+TrialList.#"VMAT".BeamList.Current.CPManager.CPManagerObject.ControlPointList.ChildrenEachCurrent.#"@".Script.ExecuteNow="/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/mu.Script";
+Store.FreeAt.prsc="";

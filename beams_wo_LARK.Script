@@ -1,0 +1,30 @@
+// Add prescription with Fraction & beam name
+TrialList.#"without_LARK".AddPrescription = "Add";
+TrialList.#"without_LARK".PrescriptionList.Last.MakeCurrent="";
+Store.StringAt.prsc=TrialList.#"VMAT".BeamList.Current.Name;
+TrialList.#"without_LARK".PrescriptionList.Current.Name=Store.StringAt.prsc;
+TrialList.#"without_LARK".PrescriptionList.Current.MethodInt = "1";
+TrialList.#"without_LARK".PrescriptionList.Current.RequestedMonitorUnitsPerFraction=TrialList.#"VMAT".BeamList.Current.MonitorUnits;
+TrialList.#"without_LARK".PrescriptionList.Current.NumberOfFractions=1;
+
+//read Trace file for this beam
+PoiList.Current=TrialList.#"VMAT".BeamList.Current.IsocenterName;
+Store.FloatAt.x=PoiList.Current.XCoord;
+Store.FloatAt.y=PoiList.Current.YCoord;
+Store.FloatAt.z=PoiList.Current.ZCoord;
+
+Store.FreeAt.py="";
+Store.FreeAt.frct="";
+Store.FreeAt.x="";
+Store.FreeAt.y="";
+Store.FreeAt.z="";
+Store.FreeAt.poi_nm="";
+Store.FreeAt.poix="";
+Store.FreeAt.poiy="";
+Store.FreeAt.poiz="";
+
+
+// Loop CP
+TrialList.#"VMAT".BeamList.Current.CPManager.CPManagerObject.ControlPointList.ChildrenEachCurrent.#"@".Script.ExecuteNow="/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/cp_wo.Script";
+TrialList.#"VMAT".BeamList.Current.CPManager.CPManagerObject.ControlPointList.ChildrenEachCurrent.#"@".Script.ExecuteNow="/usr/local/adacnew/PinnacleSiteData/Scripts/HotScripts/Physics/LARK_Dose_Recon_v1.4/mu.Script";
+Store.FreeAt.prsc="";
